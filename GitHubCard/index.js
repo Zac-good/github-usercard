@@ -15,6 +15,9 @@ axios
   .then((res) => {
     console.log(`Response:`, res.data);
     const newCard = gitCardMaker(res.data);
+    cardsDiv.appendChild(newCard);
+    console.log(newCard);
+
 
   })
   .catch()
@@ -114,6 +117,18 @@ const resultDiv = gitCardMaker(result);
 const cardsDiv = document.querySelector('div.cards');
 cardsDiv.appendChild(resultDiv)
 console.log(resultDiv);
+
+followersArray.forEach((item) => {
+  axios.get(`https://api.gitHub.com/users/${item}`)
+  .then(res => {
+    console.log(res)
+    cardsDiv.appendChild(gitCardMaker(res.data))
+  })
+  .catch(err => {
+    err = 'error'
+    console.log(err)
+  })
+})
 /*
   List of LS Instructors Github username's:
     tetondan
