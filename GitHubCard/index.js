@@ -9,14 +9,14 @@ import axios from 'axios';
 const followersArray = ['tetondan', 'dustinmyers', 'justsml', 'luishrd', 'bigknell', ];
 
 
-axios 
+axios ``
 
   .get('https://api.github.com/users/Zac-good')
   .then((res) => {
     console.log(`Response:`, res.data);
     const newCard = gitCardMaker(res.data);
     cardsDiv.appendChild(newCard);
-    console.log(newCard);
+    console.log(newCard)
 
 
   })
